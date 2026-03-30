@@ -1,0 +1,290 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f8fafc;
+  --text: #0f172a;
+  --muted: #64748b;
+  --border: #e2e8f0;
+  --indigo-bg: rgba(238, 242, 255, 0.65);
+  --indigo-border: #c7d2fe;
+  --emerald-bg: rgba(236, 253, 245, 0.75);
+  --emerald-border: #a7f3d0;
+  --teal-bg: rgba(240, 253, 250, 0.8);
+  --teal-border: #99f6e4;
+  --violet-bg: rgba(245, 243, 255, 0.75);
+  --violet-border: #ddd6fe;
+}
+
+html {
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+}
+
+.wrap {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+}
+
+.card {
+  border-radius: 1rem;
+  border: 1px solid var(--border);
+  background: #fff;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  padding: 1.25rem 1.5rem;
+}
+
+.intro {
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.lead {
+  margin: 0.35rem 0 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+  max-width: 48rem;
+}
+
+.grid-2 {
+  display: grid;
+  gap: 1rem;
+}
+
+@media (min-width: 64rem) {
+  .grid-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+h2 {
+  margin: 0 0 1rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.row-2 {
+  display: grid;
+  gap: 0.75rem;
+}
+
+@media (min-width: 40rem) {
+  .row-2 {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #475569;
+}
+
+.block-label {
+  margin-top: 0.75rem;
+}
+
+input[type="number"] {
+  margin-top: 0.25rem;
+  width: 100%;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+}
+
+input:focus {
+  outline: 2px solid #818cf8;
+  outline-offset: 1px;
+}
+
+.out {
+  margin-top: 1rem;
+  border-radius: 0.75rem;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
+}
+
+.out p {
+  margin: 0.25rem 0;
+}
+
+.out p:first-child {
+  margin-top: 0;
+}
+
+.out p:last-child {
+  margin-bottom: 0;
+}
+
+.out-indigo {
+  border: 1px solid var(--indigo-border);
+  background: var(--indigo-bg);
+}
+
+.out-emerald {
+  border: 1px solid var(--emerald-border);
+  background: var(--emerald-bg);
+}
+
+.out-teal {
+  border: 1px solid var(--teal-border);
+  background: var(--teal-bg);
+}
+
+.out-violet {
+  border: 1px solid var(--violet-border);
+  background: var(--violet-bg);
+}
+
+.small {
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.hint {
+  margin: 1rem 0 0;
+  font-size: 0.75rem;
+  color: var(--muted);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.site-footer {
+  text-align: center;
+  padding: 1.5rem 1rem 2rem;
+  font-size: 0.875rem;
+}
+
+.footer-wish {
+  margin: 0 0 0.75rem;
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: #334155;
+}
+
+.footer-links {
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem 0.5rem;
+}
+
+.site-footer a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+/* Impressum page */
+.impressum-page {
+  max-width: 40rem;
+  margin: 0 auto;
+  padding: 2rem 1rem 4rem;
+}
+
+.impressum-page h1 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.impressum-page p,
+.impressum-page ul {
+  font-size: 0.875rem;
+  color: #334155;
+}
+
+.impressum-page ul {
+  padding-left: 1.25rem;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 2rem;
+  font-size: 0.875rem;
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+/* Kurz-Hinweis auf der Startseite */
+.legal-strip {
+  margin: 1rem 0 0;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid var(--border);
+  background: #f1f5f9;
+  font-size: 0.75rem;
+  color: #475569;
+  line-height: 1.45;
+}
+
+.legal-strip a {
+  color: #4f46e5;
+  white-space: nowrap;
+}
+
+/* Längere Rechtstexte */
+.legal-doc h2 {
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  font-size: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.legal-doc h2:first-of-type {
+  border-top: none;
+  padding-top: 0;
+}
+
+.legal-toc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1rem;
+  margin: 1rem 0 1.5rem;
+  font-size: 0.8125rem;
+}
+
+.legal-toc a {
+  color: #4f46e5;
+  text-decoration: none;
+}
+
+.legal-toc a:hover {
+  text-decoration: underline;
+}
+
+.small-print {
+  font-size: 0.8125rem;
+  color: #64748b;
+}
