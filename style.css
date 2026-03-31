@@ -236,35 +236,101 @@ input:focus {
   text-decoration: underline;
 }
 
-/* Kurz-Hinweis auf der Startseite */
-.legal-strip {
+/* Warnhinweis auf der Startseite (dezent, leicht rötlicher Akzent) */
+.warning-box {
   margin: 1rem 0 0;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1rem 0.85rem 0.875rem;
   border-radius: 0.5rem;
-  border: 1px solid var(--border);
-  background: #f1f5f9;
-  font-size: 0.75rem;
-  color: #475569;
-  line-height: 1.45;
+  border: 1px solid #fecdd3;
+  border-left: 4px solid #f43f5e;
+  background: #fef2f2;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+  font-size: 0.8125rem;
+  color: #450a0a;
+  line-height: 1.55;
 }
 
-.legal-strip a {
-  color: #4f46e5;
-  white-space: nowrap;
+.warning-box p {
+  margin: 0 0 0.5rem;
+}
+
+.warning-box p:last-child {
+  margin-bottom: 0;
+}
+
+.warning-box__title {
+  margin-bottom: 0.35rem !important;
+  font-size: 0.8125rem;
+  color: #9f1239;
+}
+
+.warning-box__link {
+  margin-top: 0.5rem !important;
+  padding-top: 0.5rem;
+  border-top: 1px solid #fecdd3;
+}
+
+.warning-box a {
+  color: #9f1239;
+  font-weight: 500;
+}
+
+.warning-box a:hover {
+  color: #881337;
+  text-decoration: underline;
 }
 
 /* Längere Rechtstexte */
+.legal-section {
+  margin: 0;
+  padding: 0;
+}
+
 .legal-doc h2 {
   margin-top: 2rem;
   margin-bottom: 0.75rem;
-  font-size: 1rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
   padding-top: 0.5rem;
   border-top: 1px solid var(--border);
+  color: #0f172a;
 }
 
-.legal-doc h2:first-of-type {
+.legal-doc > .legal-section:first-of-type h2 {
   border-top: none;
   padding-top: 0;
+  margin-top: 0;
+}
+
+.legal-doc .legal-h3 {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+  color: #1e293b;
+}
+
+.legal-doc .legal-section > h2 + .legal-h3 {
+  margin-top: 0.75rem;
+}
+
+.legal-doc .legal-section p {
+  margin: 0 0 0.75rem;
+  line-height: 1.55;
+}
+
+.legal-doc .legal-section p:last-child {
+  margin-bottom: 0;
+}
+
+.legal-address {
+  margin: 0 0 0.75rem;
+  line-height: 1.55;
+}
+
+.legal-back-wrap {
+  margin: 2rem 0 0;
 }
 
 .legal-toc {
