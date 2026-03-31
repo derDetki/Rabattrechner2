@@ -1,123 +1,126 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Rabatt-Rechner (Bar ↔ Natural)</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body>
-  <main class="wrap">
-    <section class="card intro">
-      <h1>Rabatt-Rechner (Bar ↔ Natural)</h1>
-      <p class="lead">
-        Rechnet Barrabatt und Naturalrabatt ineinander um. Enthält den typischen Use-Case mit zwei Preisen
-        (Listenpreis und Einkaufspreis) und zeigt sofort den Barrabatt in Prozent sowie die Naturalrabatt-Entsprechung.
+  <!DOCTYPE html>
+  <html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Rabatt-Rechner (Bar ↔ Natural)</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="wrap">
+      <section class="card intro">
+        <h1>Rabatt-Rechner (Bar ↔ Natural)</h1>
+        <p class="lead">
+          Rechnet Barrabatt und Naturalrabatt ineinander um. Enthält den typischen Use-Case mit zwei Preisen
+          (Listenpreis und Einkaufspreis) und zeigt sofort den Barrabatt in Prozent sowie die Naturalrabatt-Entsprechung.
+        </p>
+        <div class="warning-box" role="note" aria-label="Warnhinweis">
+          <p class="warning-box__title"><strong>Wichtig — kein Ersatz fürs Nachrechnen</strong></p>
+          <p>
+            Der <strong>Betreiber dieser Seite</strong> übernimmt <strong>keine Haftung</strong> für die angezeigten
+            Ergebnisse. Die Werte dienen ausschließlich der <strong>Orientierung</strong>. Nutzerinnen und Nutzer sollten
+            Ergebnisse <strong>immer eigenständig nachrechnen</strong> bzw. gegenprüfen (Eingaben, Rundungen, besondere
+            Vereinbarungen in der Praxis).
+          </p>
+          <p>
+            <strong>Fehler sind möglich</strong> — etwa durch Technik, Eingabe oder Darstellung. Es handelt sich nicht um
+            Steuer-, Rechts- oder Wirtschaftsberatung.
+          </p>
+          <p>
+  Entscheidungen auf Basis dieses Tools erfolgen ausschließlich in eigener Verantwortung der Nutzerinnen und Nutzer.
+</p>
+          <p class="warning-box__link">
+            <a href="impressum.html#haftung">Rechtliche Hinweise &amp; Haftungsausschluss</a>
+          </p>
+        </div>
+      </section>
+
+      <section class="grid-2">
+        <div class="card" data-case="1">
+          <h2>Use-Case 1: Barrabatt → Naturalrabatt</h2>
+          <div class="row-2">
+            <label>
+              Barrabatt (%)
+              <input id="barPercentInput" type="number" min="0" max="99.99" step="0.01" value="8" />
+            </label>
+            <label>
+              Bezahlte Menge
+              <input id="barQtyInput" type="number" min="1" step="1" value="10" />
+            </label>
+          </div>
+          <div id="uc1-out" class="out out-indigo hidden"></div>
+          <p id="uc1-hint" class="hint">Bitte Rabatt zwischen 0% und kleiner 100% eingeben.</p>
+        </div>
+
+        <div class="card" data-case="2">
+          <h2>Use-Case 2: Naturalrabatt → Barrabatt</h2>
+          <div class="row-2">
+            <label>
+              Bezahlte Menge
+              <input id="natPaidQty" type="number" min="1" step="1" value="10" />
+            </label>
+            <label>
+              Gratis-Menge
+              <input id="natFreeQty" type="number" min="0" step="1" value="1" />
+            </label>
+          </div>
+          <div id="uc2-out" class="out out-emerald hidden"></div>
+          <p id="uc2-hint" class="hint">Bitte mindestens 1 bezahlte Packung eingeben.</p>
+        </div>
+
+        <div class="card" data-case="3">
+          <h2>Use-Case 3: Zwei Preise vergleichen</h2>
+          <div class="row-2">
+            <label>
+              Listenpreis pro Packung (EUR)
+              <input id="priceList" type="number" min="0" step="0.01" value="100" />
+            </label>
+            <label>
+              Einkaufspreis pro Packung (EUR)
+              <input id="priceBuy" type="number" min="0" step="0.01" value="92" />
+            </label>
+          </div>
+          <label class="block-label">
+            Bezugsmenge für Naturalrabatt-Umrechnung (z. B. 10)
+            <input id="priceUseCaseQty" type="number" min="1" step="1" value="10" />
+          </label>
+          <div id="uc3-out" class="out out-teal hidden"></div>
+          <p id="uc3-hint" class="hint">
+            Bitte sinnvolle Preise eingeben (Listenpreis &gt; 0, Einkaufspreis zwischen 0 und Listenpreis).
+          </p>
+        </div>
+
+        <div class="card" data-case="4">
+          <h2>Use-Case 4: Zielrabatt planen</h2>
+          <div class="row-2">
+            <label>
+              Listenpreis pro Packung (EUR)
+              <input id="targetListPrice" type="number" min="0" step="0.01" value="100" />
+            </label>
+            <label>
+              Gewünschter Barrabatt (%)
+              <input id="targetBarPctInput" type="number" min="0" max="99.99" step="0.01" value="8" />
+            </label>
+          </div>
+          <label class="block-label">
+            Bezugsmenge für Naturalrabatt-Äquivalent (z. B. 10)
+            <input id="targetQty" type="number" min="1" step="1" value="10" />
+          </label>
+          <div id="uc4-out" class="out out-violet hidden"></div>
+          <p id="uc4-hint" class="hint">Bitte Listenpreis &gt; 0 und Zielrabatt zwischen 0% und kleiner 100% eingeben.</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p class="footer-wish">Viel Freude mit dem Tool — und gute Geschäfte!</p>
+      <p class="footer-links">
+        <a href="impressum.html">Impressum &amp; rechtliche Hinweise</a>
+        ·
+        <a href="impressum.html#ideen">Ideen &amp; Verbesserungen</a>
       </p>
-      <div class="warning-box" role="note" aria-label="Warnhinweis">
-        <p class="warning-box__title"><strong>Wichtig — kein Ersatz fürs Nachrechnen</strong></p>
-        <p>
-          Der <strong>Betreiber dieser Seite</strong> übernimmt <strong>keine Haftung</strong> für die angezeigten
-          Ergebnisse. Die Werte dienen ausschließlich der <strong>Orientierung</strong>. Nutzerinnen und Nutzer sollten
-          Ergebnisse <strong>immer eigenständig nachrechnen</strong> bzw. gegenprüfen (Eingaben, Rundungen, besondere
-          Vereinbarungen in der Praxis).
-        </p>
-        <p>
-          <strong>Fehler sind möglich</strong> — etwa durch Technik, Eingabe oder Darstellung. Es handelt sich nicht um
-          Steuer-, Rechts- oder Wirtschaftsberatung.
-        </p>
-        <p class="warning-box__link">
-          <a href="impressum.html#haftung">Rechtliche Hinweise &amp; Haftungsausschluss</a>
-        </p>
-      </div>
-    </section>
+    </footer>
 
-    <section class="grid-2">
-      <div class="card" data-case="1">
-        <h2>Use-Case 1: Barrabatt → Naturalrabatt</h2>
-        <div class="row-2">
-          <label>
-            Barrabatt (%)
-            <input id="barPercentInput" type="number" min="0" max="99.99" step="0.01" value="8" />
-          </label>
-          <label>
-            Bezahlte Menge
-            <input id="barQtyInput" type="number" min="1" step="1" value="10" />
-          </label>
-        </div>
-        <div id="uc1-out" class="out out-indigo hidden"></div>
-        <p id="uc1-hint" class="hint">Bitte Rabatt zwischen 0% und kleiner 100% eingeben.</p>
-      </div>
-
-      <div class="card" data-case="2">
-        <h2>Use-Case 2: Naturalrabatt → Barrabatt</h2>
-        <div class="row-2">
-          <label>
-            Bezahlte Menge
-            <input id="natPaidQty" type="number" min="1" step="1" value="10" />
-          </label>
-          <label>
-            Gratis-Menge
-            <input id="natFreeQty" type="number" min="0" step="1" value="1" />
-          </label>
-        </div>
-        <div id="uc2-out" class="out out-emerald hidden"></div>
-        <p id="uc2-hint" class="hint">Bitte mindestens 1 bezahlte Packung eingeben.</p>
-      </div>
-
-      <div class="card" data-case="3">
-        <h2>Use-Case 3: Zwei Preise vergleichen</h2>
-        <div class="row-2">
-          <label>
-            Listenpreis pro Packung (EUR)
-            <input id="priceList" type="number" min="0" step="0.01" value="100" />
-          </label>
-          <label>
-            Einkaufspreis pro Packung (EUR)
-            <input id="priceBuy" type="number" min="0" step="0.01" value="92" />
-          </label>
-        </div>
-        <label class="block-label">
-          Bezugsmenge für Naturalrabatt-Umrechnung (z. B. 10)
-          <input id="priceUseCaseQty" type="number" min="1" step="1" value="10" />
-        </label>
-        <div id="uc3-out" class="out out-teal hidden"></div>
-        <p id="uc3-hint" class="hint">
-          Bitte sinnvolle Preise eingeben (Listenpreis &gt; 0, Einkaufspreis zwischen 0 und Listenpreis).
-        </p>
-      </div>
-
-      <div class="card" data-case="4">
-        <h2>Use-Case 4: Zielrabatt planen</h2>
-        <div class="row-2">
-          <label>
-            Listenpreis pro Packung (EUR)
-            <input id="targetListPrice" type="number" min="0" step="0.01" value="100" />
-          </label>
-          <label>
-            Gewünschter Barrabatt (%)
-            <input id="targetBarPctInput" type="number" min="0" max="99.99" step="0.01" value="8" />
-          </label>
-        </div>
-        <label class="block-label">
-          Bezugsmenge für Naturalrabatt-Äquivalent (z. B. 10)
-          <input id="targetQty" type="number" min="1" step="1" value="10" />
-        </label>
-        <div id="uc4-out" class="out out-violet hidden"></div>
-        <p id="uc4-hint" class="hint">Bitte Listenpreis &gt; 0 und Zielrabatt zwischen 0% und kleiner 100% eingeben.</p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p class="footer-wish">Viel Freude mit dem Tool — und gute Geschäfte!</p>
-    <p class="footer-links">
-      <a href="impressum.html">Impressum &amp; rechtliche Hinweise</a>
-      ·
-      <a href="impressum.html#ideen">Ideen &amp; Verbesserungen</a>
-    </p>
-  </footer>
-
-  <script src="script.js"></script>
-</body>
-</html>
+    <script src="script.js"></script>
+  </body>
+  </html>
